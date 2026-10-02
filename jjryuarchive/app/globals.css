@@ -1,26 +1,60 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-heritage-navy: #0f172a;
+  --color-heritage-deep: #090d16;
+  --color-heritage-blue: #1e3a8a;
+  --color-heritage-gold: #b45309;
+  --color-heritage-amber: #d97706;
+  --color-heritage-hanji: #faf8f5;
+  --color-heritage-paper: #f4efe6;
+  --color-heritage-border: #e2d9cc;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-heritage-hanji);
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Serif KR", "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Subtle traditional grid/paper pattern */
+.bg-hanji-pattern {
+  background-color: #faf8f5;
+  background-image: radial-gradient(#e5dfd5 0.75px, transparent 0.75px), radial-gradient(#e5dfd5 0.75px, #faf8f5 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1ede4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Glassmorphism */
+.glass-header {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(226, 217, 204, 0.8);
 }

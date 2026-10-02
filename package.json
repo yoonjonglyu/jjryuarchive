@@ -1,0 +1,12 @@
+{
+  "name": "jjryuarchive-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "description": "전주류씨 아카이브 (Jeonju Ryu Clan Digital Archive)",
+  "scripts": {
+    "dev": "npm --prefix jjryuarchive run dev",
+    "build": "npm --prefix jjryuarchive run build",
+    "start": "npm --prefix jjryuarchive run start",
+    "lint": "npm --prefix jjryuarchive run lint"
+  }
+}
