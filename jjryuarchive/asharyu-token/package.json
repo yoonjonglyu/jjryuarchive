@@ -1,0 +1,61 @@
+{
+  "name": "asharyu-design-token",
+  "version": "2.1.0",
+  "description": "asharyu-design-system token (Yin-Yang, Wu Xing, Spacing, Elevation, Figma DTCG)",
+  "keywords": [
+    "asharyu",
+    "design",
+    "token",
+    "designtoken",
+    "wuxing",
+    "figma",
+    "tokens-studio",
+    "ryuislabs"
+  ],
+  "author": "Isa <yunjonglyu@gmail.com> (yunjongryu)",
+  "homepage": "https://github.com/yoonjonglyu/asharyu-design#readme",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./index.css": "./dist/index.css",
+    "./tokens.json": "./dist/tokens.json",
+    "./figma-variables.json": "./dist/figma-variables.json",
+    "./SKILL.md": "./SKILL.md"
+  },
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist",
+    "SKILL.md",
+    "README.md",
+    "README.ko.md",
+    "README.zh-TW.md",
+    "README.ja.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoonjonglyu/asharyu-design.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yoonjonglyu/asharyu-design/issues"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.15.3",
+    "typescript": "^4.7.4"
+  },
+  "scripts": {
+    "build": "tsc && esbuild src/index.ts --bundle --format=esm --outdir=dist",
+    "postbuild": "node makeCSS.js && node makeFigmaTokens.js",
+    "test": "node --test __tests__/*.test.mjs"
+  }
+}

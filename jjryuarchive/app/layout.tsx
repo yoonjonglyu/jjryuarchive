@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: ["전주류씨", "수곡파", "무실마을", "류혼", "류복기", "기봉정사", "삼산 류정원", "족보", "디지털 아카이브"],
   openGraph: {
     title: "전주류씨 디지털 아카이브",
-    description: "뿌리를 잊지 않되, 현대의 디지털 언어로 기록하다.",
+    description: "뿌리를 잊지 않되, 현대의 디지털 언어로 기록하다. (asharyu design system)",
     type: "website",
   }
 };
@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
-      <body className="min-h-screen flex flex-col bg-hanji-pattern antialiased text-slate-800 selection:bg-amber-100 selection:text-amber-900">
+    <html lang="ko" data-theme="light">
+      <body className="min-h-screen flex flex-col bg-asharyu-hanji antialiased text-[#0c0c0c] selection:bg-[#AEC6D7]/40 selection:text-[#3E6586]">
         <Navbar />
         <main className="flex-1 pb-16">
           {children}

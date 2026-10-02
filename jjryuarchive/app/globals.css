@@ -1,60 +1,174 @@
 @import "tailwindcss";
+@import "../asharyu-token/dist/index.css";
+
+/* 
+ * asharyu Design Token Integration for Jeonju Ryu Clan Archive
+ * - Persona: 예리한 묵선(Sharpness 0.5px), 한지의 여백(Void), 오행의 흐름(Ki-un Flow)
+ * - Yin (음 陰) & Yang (양 陽): 한지 질감의 크림색 배경과 깊은 먹빛 서체의 조화
+ * - Nong-dam (농담 濃淡): 담묵(淡墨), 중묵(中墨), 농묵(濃墨)의 스며드는 깊이
+ */
 
 :root {
-  --color-heritage-navy: #0f172a;
-  --color-heritage-deep: #090d16;
-  --color-heritage-blue: #1e3a8a;
-  --color-heritage-gold: #b45309;
-  --color-heritage-amber: #d97706;
-  --color-heritage-hanji: #faf8f5;
-  --color-heritage-paper: #f4efe6;
-  --color-heritage-border: #e2d9cc;
+  /* Asharyu Semantic Bridges */
+  --bg-hanji: var(--asharyu-color-semantic-background, #fdfaf4);
+  --text-muk: var(--asharyu-color-semantic-text, #0c0c0c);
+  --stroke-sharp: var(--asharyu-stroke-weight-sharp, 0.5px);
+  --stroke-fine: var(--asharyu-stroke-weight-fine, 1px);
+  --radius-gentle: var(--asharyu-radius-gentle, 8px);
+  --radius-smooth: var(--asharyu-radius-smooth, 12px);
+  --spacing-void: var(--asharyu-spacing-void, 24px);
+  
+  /* Wood (목 木) - Action */
+  --action-wood-subtle: var(--asharyu-color-semantic-action-subtle, #ECF2F6);
+  --action-wood-soft: var(--asharyu-color-semantic-action-soft, #AEC6D7);
+  --action-wood-primary: var(--asharyu-color-semantic-action-primary, #7BA2BE);
+  --action-wood-deep: var(--asharyu-color-semantic-action-deep, #5C83A2);
+  --action-wood-sharp: var(--asharyu-color-semantic-action-sharp, #3E6586);
+
+  /* Earth (토 土) - Surface */
+  --surface-earth-subtle: var(--asharyu-color-semantic-surface-subtle, #F6F1E3);
+  --surface-earth-soft: var(--asharyu-color-semantic-surface-soft, #E8DDBF);
+  --surface-earth-primary: var(--asharyu-color-semantic-surface-primary, #D9C58F);
+  --surface-earth-deep: var(--asharyu-color-semantic-surface-deep, #B5A16B);
+  --surface-earth-sharp: var(--asharyu-color-semantic-surface-sharp, #917D47);
+
+  /* Metal (금 金) - Border & Edge */
+  --border-metal-subtle: var(--asharyu-color-semantic-border-subtle, #FAFAFA);
+  --border-metal-soft: var(--asharyu-color-semantic-border-soft, #F2F2F2);
+  --border-metal-primary: var(--asharyu-color-semantic-border-primary, #E2E2E2);
+  --border-metal-deep: var(--asharyu-color-semantic-border-deep, #C2C2C2);
+
+  /* Water (수 水) - Info & Ink */
+  --info-water-primary: var(--asharyu-color-semantic-info-primary, #333333);
+  --info-water-deep: var(--asharyu-color-semantic-info-deep, #222222);
+
+  /* Five Secondary Colors (오간색 五間色) */
+  --nok-primary: var(--asharyu-color-semantic-status-success-primary, #ACC4A6);
+  --hong-primary: var(--asharyu-color-semantic-status-alert-hover-primary, #D6A6A6);
+  --byeok-primary: var(--asharyu-color-semantic-status-action-focus-primary, #AFC2D0);
+  --yuhwang-primary: var(--asharyu-color-semantic-status-sub-surface-primary, #867D61);
+  --ja-primary: var(--asharyu-color-semantic-status-info-active-primary, #7E4F53);
+
+  /* Nong-dam (농담 濃淡) Elevation Shadows */
+  --elevation-dam-muk: var(--asharyu-elevation-dam-muk, 0 1px 3px rgba(0, 0, 0, 0.05));
+  --elevation-jung-muk: var(--asharyu-elevation-jung-muk, 0 4px 12px rgba(0, 0, 0, 0.08));
+  --elevation-nong-muk: var(--asharyu-elevation-nong-muk, 0 12px 28px rgba(0, 0, 0, 0.14));
 }
 
 body {
-  background-color: var(--color-heritage-hanji);
-  color: #1e293b;
-  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Serif KR", "Apple SD Gothic Neo", "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-hanji);
+  color: var(--text-muk);
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Noto Serif KR", serif, sans-serif;
   overflow-x: hidden;
 }
 
-/* Subtle traditional grid/paper pattern */
-.bg-hanji-pattern {
-  background-color: #faf8f5;
-  background-image: radial-gradient(#e5dfd5 0.75px, transparent 0.75px), radial-gradient(#e5dfd5 0.75px, #faf8f5 0.75px);
-  background-size: 30px 30px;
-  background-position: 0 0, 15px 15px;
+/* Subtle Korean Hanji Paper Texture */
+.bg-asharyu-hanji {
+  background-color: var(--bg-hanji);
+  background-image: 
+    radial-gradient(rgba(145, 125, 71, 0.08) 0.75px, transparent 0.75px), 
+    radial-gradient(rgba(145, 125, 71, 0.08) 0.75px, var(--bg-hanji) 0.75px);
+  background-size: 28px 28px;
+  background-position: 0 0, 14px 14px;
 }
 
-/* Custom scrollbars */
+/* Asharyu 0.5px Sharp Muk-seon Border */
+.border-muk-sharp {
+  border-width: var(--stroke-sharp);
+  border-style: solid;
+  border-color: var(--border-metal-deep);
+}
+
+.border-muk-fine {
+  border-width: var(--stroke-fine);
+  border-style: solid;
+  border-color: var(--border-metal-primary);
+}
+
+/* Asharyu Cards & Surfaces */
+.asharyu-surface-card {
+  background-color: #ffffff;
+  border: var(--stroke-sharp) solid var(--border-metal-deep);
+  border-radius: var(--radius-smooth);
+  box-shadow: var(--elevation-dam-muk);
+  transition: all 0.25s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.asharyu-surface-card:hover {
+  border-color: var(--action-wood-primary);
+  box-shadow: var(--elevation-jung-muk);
+  transform: translateY(-2px);
+}
+
+.asharyu-surface-earth {
+  background-color: var(--surface-earth-subtle);
+  border: var(--stroke-sharp) solid var(--surface-earth-soft);
+  border-radius: var(--radius-smooth);
+}
+
+/* Asharyu Sang-saeng Flow Buttons (Wood Action) */
+.btn-asharyu-wood {
+  background-color: var(--action-wood-sharp);
+  color: #ffffff;
+  border-radius: var(--radius-gentle);
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+  box-shadow: 0 2px 4px rgba(62, 101, 134, 0.2);
+}
+
+.btn-asharyu-wood:hover {
+  background-color: var(--action-wood-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(62, 101, 134, 0.3);
+}
+
+.btn-asharyu-outline {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--action-wood-sharp);
+  border: var(--stroke-sharp) solid var(--border-metal-deep);
+  border-radius: var(--radius-gentle);
+  transition: all 0.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.btn-asharyu-outline:hover {
+  border-color: var(--action-wood-sharp);
+  background-color: var(--action-wood-subtle);
+}
+
+/* Asharyu Tags */
+.asharyu-tag-earth {
+  background-color: var(--surface-earth-subtle);
+  color: var(--surface-earth-sharp);
+  border: var(--stroke-sharp) solid var(--surface-earth-soft);
+}
+
+.asharyu-tag-wood {
+  background-color: var(--action-wood-subtle);
+  color: var(--action-wood-sharp);
+  border: var(--stroke-sharp) solid var(--action-wood-soft);
+}
+
+.asharyu-tag-nok {
+  background-color: #E7F0E6;
+  color: #4D6B48;
+  border: var(--stroke-sharp) solid var(--nok-primary);
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1ede4;
+  background: var(--bg-hanji);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
+  background: var(--border-metal-deep);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Glassmorphism */
-.glass-header {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-.glass-card {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(226, 217, 204, 0.8);
+  background: var(--action-wood-primary);
 }
