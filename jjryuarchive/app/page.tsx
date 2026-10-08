@@ -28,7 +28,7 @@ export default function HomePage() {
 
           <p className="mx-auto max-w-2xl text-base sm:text-lg text-[#C2C2C2] leading-relaxed font-normal">
             안동댐 건설로 수몰된 400년 집성촌 무실(수곡)의 맥락을 되살리고,
-            시조 완산백(完山伯) 이래 이어온 가문의 족보와 고문서, 선조들의 행적을
+            시조 완산부원군(完山府院君) 이래 이어온 가문의 족보와 고문서, 선조들의 행적을
             글로벌 오픈 저장소에 영구히 보존합니다.
           </p>
 
@@ -38,7 +38,7 @@ export default function HomePage() {
               href="/genealogy"
               className="btn-asharyu-wood px-6 py-3 text-sm sm:text-base font-semibold shadow-md flex items-center gap-2"
             >
-              <span>계보도 탐색하기</span>
+              <span>주요인물 계보도 탐색하기</span>
               <span>→</span>
             </Link>
             <Link
@@ -56,12 +56,12 @@ export default function HomePage() {
               <div className="text-xs text-[#888888] mt-1">가문 전승 역사</div>
             </div>
             <div className="p-3">
-              <div className="text-2xl sm:text-3xl font-bold font-serif text-[#D9C58F]">16 世</div>
-              <div className="text-xs text-[#888888] mt-1">정리된 직계 계보</div>
+              <div className="text-2xl sm:text-3xl font-bold font-serif text-[#D9C58F]">21 代</div>
+              <div className="text-xs text-[#888888] mt-1">대동보 연동 주요인물 (71位)</div>
             </div>
             <div className="p-3">
               <div className="text-2xl sm:text-3xl font-bold font-serif text-[#D9C58F]">100%</div>
-              <div className="text-xs text-[#888888] mt-1">오픈 디지털 아카이브</div>
+              <div className="text-xs text-[#888888] mt-1">공인 1차 사료 교차 고증</div>
             </div>
             <div className="p-3">
               <div className="text-2xl sm:text-3xl font-bold font-serif text-[#D9C58F]">글로벌</div>

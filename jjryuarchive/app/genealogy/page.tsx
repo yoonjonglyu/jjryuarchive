@@ -110,7 +110,7 @@ export default function GenealogyPage() {
   return (
     <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 space-y-8">
       {/* Header */}
-      <div className="text-center space-y-3 border-b border-muk-sharp pb-8">
+      <div className="text-center space-y-3 border-b border-muk-sharp p-4">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#3E6586]/30 bg-[#ECF2F6] px-3.5 py-1 text-xs font-bold text-[#3E6586]">
           <span>전주류씨 대동보 공인 연계 · 21代 主要人物 世譜</span>
         </div>
@@ -152,7 +152,7 @@ export default function GenealogyPage() {
       </div>
 
       {/* Branch Filter Tabs */}
-      <div className="flex flex-wrap items-center gap-2 border-b border-muk-sharp pb-3">
+      <div className="flex flex-wrap items-center gap-2 border-b border-muk-sharp p-3">
         <span className="text-xs font-bold text-[#666666] mr-1">분파 필터:</span>
         <button
           onClick={() => setSelectedBranch("all")}

@@ -45,7 +45,7 @@ export default function ArchivePage() {
   return (
     <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       {/* Header: Permanent Digital Preservation Mission */}
-      <div className="text-center space-y-3 border-b border-muk-sharp pb-8">
+      <div className="text-center space-y-3 border-b border-muk-sharp p-4">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#3E6586]/30 bg-[#ECF2F6] px-3.5 py-1 text-xs font-bold text-[#3E6586]">
           <span>🏛️ 국가 소멸 대비 영구 디지털 보존소 · Permanent Digital Archive</span>
         </div>

@@ -92,7 +92,87 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Section 4: 참여 및 기여 안내 */}
+        {/* Section 4: 기획 및 구축자 소개 */}
+        <section className="asharyu-surface-card p-6 sm:p-10 space-y-6">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-muk-sharp pb-4">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-[#917D47]">
+                Creator & Maintainer · 錄主
+              </span>
+              <h2 className="font-serif text-2xl font-bold text-[#0c0c0c] mt-1">
+                👤 기획 및 구축자 소개
+              </h2>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="rounded-full bg-[#ECF2F6] text-[#3E6586] px-3 py-1 text-xs font-bold">
+                전주류씨 수곡파 후손
+              </span>
+              <span className="rounded-full bg-[#F6F1E3] text-[#917D47] px-3 py-1 text-xs font-bold">
+                소프트웨어 엔지니어
+              </span>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-6 items-start">
+            {/* Identity Badge */}
+            <div className="flex-shrink-0 flex flex-col items-center gap-2.5 mx-auto md:mx-0 w-full sm:w-auto">
+              <div className="w-24 h-24 rounded-2xl bg-[#0c0c0c] text-[#D9C58F] font-serif text-3xl font-black flex items-center justify-center border-2 border-[#917D47]/40 shadow-md">
+                柳
+              </div>
+              <div className="text-center">
+                <h3 className="font-serif font-bold text-lg text-[#0c0c0c]">류윤종 (Ryuis)</h3>
+                <p className="text-xs text-[#666666] font-mono">Archive Director & Dev</p>
+                <a
+                  href="mailto:yunjonglyu@gmail.com"
+                  className="text-xs text-[#3E6586] hover:underline block mt-1"
+                >
+                  yunjonglyu@gmail.com
+                </a>
+              </div>
+            </div>
+
+            {/* Bio & Philosophy */}
+            <div className="space-y-4 text-sm text-[#333333] leading-relaxed flex-1">
+              <p>
+                안녕하십니까. 전주류씨 수곡파 기봉 류복기 파조 16대손이자 류재홍(柳在泓) 공의 아들인 후손 <strong>류윤종(柳尹鐘)</strong>입니다.
+              </p>
+              <p>
+                안동댐과 임하댐 건설로 인해 400여 년간 이어져 내려오던 무실마을의 삶터가 수장(水葬)된 뒤,
+                세월이 흐르며 젊은 세대 후손들이 문중의 뿌리와 선조들의 숭고한 정신을 접할 기회가 점차 줄어드는 현실을 마주했습니다.
+                한 가문의 자손이자 현대 사회에서 디지털 소프트웨어를 다루는 엔지니어로서,
+                <strong>“선조들이 목숨 바쳐 지켜낸 도학과 의병, 독립운동의 역사를 현대의 가장 안전하고 영구적인 디지털 언어로 다시 세우는 것이 나의 시대적 소명”</strong>이라는 고민에서 본 프로젝트를 시작하였습니다.
+              </p>
+              <p>
+                국가나 공공 기관의 전산 시스템조차 기술적 단절이나 전란(戰亂) 속에 영원할 수 없다는 문제의식 아래,
+                한국국학진흥원·국가기록원·독립기념관·전주류씨 대동보 등 공인된 1차 사료를 직접 수집·교차 고증하고,
+                전 세계에 분산 보존되는 오픈소스 웹 아카이브로 직조해 냈습니다.
+              </p>
+
+              {/* Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div className="rounded-lg bg-[#FAFAFA] p-3.5 border border-muk-sharp">
+                  <span className="font-bold text-xs text-[#3E6586] block mb-1">📜 사료 발굴 및 고증</span>
+                  <p className="text-xs text-[#555555] leading-relaxed">
+                    대동보 전산 데이터(9만 7천여 위) 및 고문서·독립운동 사료를 전수 분석하여 21대 주요 인물 계보도 및 1차 시각 자료실 구축
+                  </p>
+                </div>
+                <div className="rounded-lg bg-[#FAFAFA] p-3.5 border border-muk-sharp">
+                  <span className="font-bold text-xs text-[#917D47] block mb-1">🌿 가계 계통 및 세수 (Lineage)</span>
+                  <p className="text-xs text-[#555555] leading-relaxed">
+                    전주류씨 <strong>제24세</strong> (기봉 류복기 파조 16대손) · 희잠공계(希潛公系) · 부친 <strong>류재홍(柳在泓)</strong>의 자(子) 류윤종(柳尹鐘, 대동보 코드 #402975)
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-xs text-[#777777] pt-1">
+                본 아카이브는 문중의 어르신들과 전 세계로 흩어진 후손들, 그리고 영남 사림 문화를 연구하는 모든 분들을 위한 열린 지식 자산입니다.
+                기록의 교정이나 추가 제보 사항이 있다면 언제든 편히 연락해 주시기 바랍니다.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Section 5: 참여 및 기여 안내 */}
         <section className="asharyu-surface-earth p-6 sm:p-10 space-y-4">
           <h2 className="font-serif text-2xl font-bold text-[#0c0c0c] border-l-4 border-[#3E6586] pl-3">
             🤝 참여 및 기여 방법 (Open Archive)
@@ -109,7 +189,7 @@ export default function AboutPage() {
           <div className="pt-4 flex flex-wrap gap-4 items-center">
             <a
               href="mailto:yunjonglyu@gmail.com"
-              className="btn-asharyu-wood px-5 py-2.5 text-sm font-semibold inline-flex items-center gap-2"
+              className="btn-asharyu-wood px-5 py-2.5 text-sm font-semibold inline-flex items-center gap-2 shadow-2xs"
             >
               ✉️ 문의 및 자료 제보: yunjonglyu@gmail.com
             </a>
@@ -124,13 +204,13 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Section 5: 저작권 및 발기인 */}
+        {/* Section 6: 저작권 및 발기인 */}
         <div className="text-center pt-8 border-t border-muk-sharp text-sm text-[#777777] space-y-2">
           <p className="font-serif italic text-[#333333]">
             “뿌리를 잊지 않되, 현대의 언어로 기록하다.”
           </p>
           <p>
-            기획 및 발기: 전주류씨 수곡파 류윤종
+            기획 및 개발 디렉터: 전주류씨 수곡파 류윤종 (Ryuis)
           </p>
           <p className="text-xs">
             사이트 소스코드는 MIT License 하에 공개되며, 사료의 1차 저작권은 각 기여자 및 문중에 귀속됩니다.
@@ -144,7 +224,7 @@ export default function AboutPage() {
           ← 홈으로 돌아가기
         </Link>
         <Link href="/genealogy" className="text-sm font-semibold text-[#3E6586] hover:text-[#5C83A2]">
-          가문 계보도 열람하기 →
+          주요인물 계보도 열람하기 →
         </Link>
       </div>
     </div>
