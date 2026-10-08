@@ -46,16 +46,16 @@ export default function PeoplePage() {
       {/* Header */}
       <div className="text-center space-y-3 border-b border-muk-sharp pb-8">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#3E6586]/30 bg-[#ECF2F6] px-3.5 py-1 text-xs font-bold text-[#3E6586]">
-          <span>Historical Luminaries · 全州柳氏 洙谷派 20代 先祖</span>
+          <span>Historical Luminaries · 全州柳氏 洙谷派 25代 先祖</span>
         </div>
         <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#0c0c0c]">
-          가문의 대표 인물 열전 (20人)
+          가문의 대표 인물 열전 (25人)
         </h1>
         <p className="text-sm sm:text-base text-[#555555] max-w-2xl mx-auto leading-relaxed">
           고려조 완산백 류혼 시조 이래 400여 년 무실(수곡)의 터전을 닦고,
           퇴계 정통 학맥을 계승하여 『상변통고』·『정재집』·『삼산집』 등 불후의 학술을 집대성하며,
-          임진왜란 예안의병과 만주 독립투쟁, 파리장서, 대한민국 임시정부 국무위원에 이르기까지
-          조선의 역사와 사상사를 주도한 대표 선조 20인의 생애와 행적을 집대성했습니다.
+          임진왜란 예안의병과 만주 독립투쟁, 파리장서, 대한민국 임시정부 국무위원, 영남 의병 항전에 이르기까지
+          조선의 역사와 사상사를 주도한 대표 선조 25인의 생애와 행적을 집대성했습니다.
         </p>
 
         {/* 4 Summary Highlight Cards */}
