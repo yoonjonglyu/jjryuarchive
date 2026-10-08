@@ -81,9 +81,9 @@ export default function HomePage() {
               호수 아래 잠긴 고향, 그러나 기억은 침수되지 않습니다
             </h2>
             <p className="text-[#333333] leading-relaxed text-sm sm:text-base">
-              1970년대 중반, 안동 다목적댐 건설로 인해 전주류씨 수곡파가 400여 년간 일구어온
+              1970년대 안동댐과 1980년대 임하댐 건설로 인해 전주류씨 수곡파가 400여 년간 일구어온
               수곡리(무실마을) 집성촌 전역이 물에 잠겼습니다.
-              선조들의 삶터와 문중의 공간적 구심점이 순식간에 사라지며,
+              선조들의 삶터와 문중의 공간적 구심점이 사라지며,
               많은 후손들이 자신의 뿌리와 유산에 닿기 어려운 현실을 맞이했습니다.
             </p>
             <p className="text-[#333333] leading-relaxed text-sm sm:text-base">
@@ -246,24 +246,50 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredArchives.map((item) => (
-            <div
+            <Link
               key={item.id}
-              className="asharyu-surface-card p-6 space-y-3"
+              href="/archive"
+              className="asharyu-surface-card overflow-hidden flex flex-col justify-between group"
             >
-              <span className="inline-block rounded asharyu-tag-earth px-2.5 py-0.5 text-xs font-medium">
-                {item.categoryLabel}
-              </span>
-              <h3 className="font-serif text-base font-bold text-[#0c0c0c] leading-snug">
-                {item.title}
-              </h3>
-              <p className="text-xs text-[#777777]">연대: {item.dateOrEra}</p>
-              <p className="text-xs text-[#555555] line-clamp-3 leading-relaxed">
-                {item.description}
-              </p>
-              <div className="pt-2 text-[11px] text-[#888888] truncate">
-                보관처: {item.sourceOrKeeper}
+              {item.imageUrl && (
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F2F2F2] border-b border-muk-sharp">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="rounded-md asharyu-tag-earth px-2.5 py-1 text-xs font-medium shadow-xs backdrop-blur-xs bg-white/90">
+                      {item.categoryLabel}
+                    </span>
+                  </div>
+                </div>
+              )}
+              <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center justify-between text-xs mb-1">
+                    {!item.imageUrl && (
+                      <span className="inline-block rounded asharyu-tag-earth px-2.5 py-0.5 text-xs font-medium">
+                        {item.categoryLabel}
+                      </span>
+                    )}
+                    <span className="text-xs text-[#888888] font-mono ml-auto">연대: {item.dateOrEra}</span>
+                  </div>
+                  <h3 className="font-serif text-base font-bold text-[#0c0c0c] group-hover:text-[#3E6586] transition-colors leading-snug">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-[#555555] line-clamp-3 leading-relaxed mt-2">
+                    {item.description}
+                  </p>
+                </div>
+                <div className="pt-3 border-t border-[#E2E2E2] text-[11px] text-[#888888] flex items-center justify-between">
+                  <span className="truncate max-w-[180px]">보관처: {item.sourceOrKeeper}</span>
+                  <span className="text-[#3E6586] font-semibold group-hover:translate-x-1 transition-transform">열람 →</span>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -280,14 +306,14 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="relative border-l-2 border-[#7BA2BE]/60 ml-4 sm:ml-32 space-y-8 pl-6 sm:pl-8 py-4">
+        <div className="relative border-l-2 border-[#7BA2BE]/60 ml-4 sm:ml-44 space-y-8 pl-6 sm:pl-8 py-4">
           {TIMELINE.map((item, idx) => (
             <div key={idx} className="relative group">
               {/* Dot */}
               <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-[#3E6586] shadow-xs group-hover:scale-125 transition-transform" />
 
-              {/* Year badge for desktop */}
-              <div className="sm:absolute sm:-left-36 sm:top-1 sm:w-28 sm:text-right font-serif text-sm font-bold text-[#3E6586]">
+              {/* Year badge: mobile flow + desktop right-aligned with proper spacing */}
+              <div className="font-serif text-xs sm:text-sm font-bold text-[#3E6586] mb-1.5 sm:mb-0 sm:absolute sm:right-[calc(100%+3.5rem)] sm:top-1 sm:w-36 sm:text-right">
                 {item.year}
               </div>
 

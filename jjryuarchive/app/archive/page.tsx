@@ -6,8 +6,8 @@ import { ARCHIVE_ITEMS, ArchiveItem } from "@/lib/data";
 const CATEGORIES = [
   { key: "all", label: "전체 사료 (全)" },
   { key: "document", label: "문헌·고서 (文)" },
-  { key: "submerged_history", label: "안동댐 수몰사 (水)" },
   { key: "historic_site", label: "유적·종택 (址)" },
+  { key: "submerged_history", label: "수몰사 기록 (水)" },
   { key: "calligraphy", label: "유묵·현판 (墨)" },
 ];
 
@@ -15,6 +15,14 @@ export default function ArchivePage() {
   const [selectedCat, setSelectedCat] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedItem, setSelectedItem] = useState<ArchiveItem | null>(null);
+
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: ARCHIVE_ITEMS.length };
+    ARCHIVE_ITEMS.forEach((item) => {
+      counts[item.category] = (counts[item.category] || 0) + 1;
+    });
+    return counts;
+  }, []);
 
   const filteredItems = useMemo(() => {
     return ARCHIVE_ITEMS.filter((item) => {
@@ -25,7 +33,8 @@ export default function ArchivePage() {
         (item.hanjaTitle && item.hanjaTitle.includes(searchQuery)) ||
         item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.significance.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.tag.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase()));
+        item.tag.some((t) => t.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        item.sourceOrKeeper.toLowerCase().includes(searchQuery.toLowerCase());
       return matchCat && matchQuery;
     });
   }, [selectedCat, searchQuery]);
@@ -41,28 +50,60 @@ export default function ArchivePage() {
           전주류씨 디지털 사료관
         </h1>
         <p className="text-sm sm:text-base text-[#555555] max-w-2xl mx-auto">
-          『삼산집』을 비롯한 고문헌과 족보 목판본, 안동댐 수몰 이전 무실마을의 사진,
-          현판과 유묵 등 가문의 숨결이 깃든 사료를 디지털로 영구 보존합니다.
+          유네스코 세계기록유산 『상변통고』와 『삼산집』·『기봉집』 목판본, 안동댐 수몰 이전 무실마을의 실측 사진,
+          파리장서와 만주 무장투쟁 독립운동 사료 등 600년 가문의 숨결이 깃든 기록을 디지털로 영구 보존합니다.
         </p>
+
+        {/* Quick Summary Highlights */}
+        <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-center">
+          <div className="p-2.5 rounded-lg bg-white border border-muk-sharp">
+            <div className="text-xs text-[#888888]">세계기록유산 (UNESCO)</div>
+            <div className="text-lg font-bold font-serif text-[#3E6586] mt-0.5">유교책판 등재</div>
+          </div>
+          <div className="p-2.5 rounded-lg bg-white border border-muk-sharp">
+            <div className="text-xs text-[#888888]">국가·도지정 문화유산</div>
+            <div className="text-lg font-bold font-serif text-[#3E6586] mt-0.5">민속문화유산 4개소</div>
+          </div>
+          <div className="p-2.5 rounded-lg bg-white border border-muk-sharp">
+            <div className="text-xs text-[#888888]">수몰사 복원 사료</div>
+            <div className="text-lg font-bold font-serif text-[#3E6586] mt-0.5">1974 실측·사진</div>
+          </div>
+          <div className="p-2.5 rounded-lg bg-white border border-muk-sharp">
+            <div className="text-xs text-[#888888]">한국국학진흥원</div>
+            <div className="text-lg font-bold font-serif text-[#3E6586] mt-0.5">문중 고문서 기탁</div>
+          </div>
+        </div>
       </div>
 
       {/* Filter and Search Bar */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 rounded-xl border border-muk-sharp bg-white p-4 shadow-2xs">
         {/* Category Tabs */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat.key}
-              onClick={() => setSelectedCat(cat.key)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${
-                selectedCat === cat.key
-                  ? "bg-[#0c0c0c] text-white shadow-2xs"
-                  : "bg-[#FAFAFA] text-[#333333] hover:bg-[#F2F2F2] border border-muk-sharp"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+          {CATEGORIES.map((cat) => {
+            const count = categoryCounts[cat.key] || 0;
+            return (
+              <button
+                key={cat.key}
+                onClick={() => setSelectedCat(cat.key)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                  selectedCat === cat.key
+                    ? "bg-[#0c0c0c] text-white shadow-2xs"
+                    : "bg-[#FAFAFA] text-[#333333] hover:bg-[#F2F2F2] border border-muk-sharp"
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                    selectedCat === cat.key
+                      ? "bg-white/20 text-white"
+                      : "bg-[#EAEAEA] text-[#666666]"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Search */}
@@ -97,58 +138,82 @@ export default function ArchivePage() {
           <div
             key={item.id}
             onClick={() => setSelectedItem(item)}
-            className="asharyu-surface-card cursor-pointer p-6 flex flex-col justify-between group"
+            className="asharyu-surface-card cursor-pointer flex flex-col justify-between group overflow-hidden"
           >
-            <div>
-              {/* Category tag */}
-              <div className="flex items-center justify-between text-xs mb-3">
-                <span className="rounded-md asharyu-tag-earth px-2.5 py-0.5 text-xs font-medium">
-                  {item.categoryLabel}
-                </span>
-                <span className="text-[#888888] text-[11px] font-mono">{item.dateOrEra}</span>
-              </div>
-
-              {/* Title */}
-              <h3 className="font-serif text-lg font-bold text-[#0c0c0c] group-hover:text-[#3E6586] transition-colors leading-snug">
-                {item.title}
-              </h3>
-              {item.hanjaTitle && (
-                <p className="text-xs text-[#888888] font-serif mt-0.5">
-                  {item.hanjaTitle}
-                </p>
-              )}
-
-              {/* Location */}
-              {item.location && (
-                <p className="text-xs text-[#666666] mt-2 flex items-center gap-1">
-                  <span>📍</span> {item.location}
-                </p>
-              )}
-
-              {/* Description */}
-              <p className="text-xs sm:text-sm text-[#555555] mt-3 line-clamp-3 leading-relaxed">
-                {item.description}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 mt-4">
-                {item.tag.map((t, idx) => (
-                  <span
-                    key={idx}
-                    className="rounded bg-[#FAFAFA] border border-muk-sharp px-2 py-0.5 text-[11px] text-[#555555]"
-                  >
-                    #{t}
+            {/* Image Thumbnail */}
+            {item.imageUrl && (
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F2F2F2] border-b border-muk-sharp">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute top-3 left-3">
+                  <span className="rounded-md asharyu-tag-earth px-2.5 py-1 text-xs font-medium shadow-xs backdrop-blur-xs bg-white/90">
+                    {item.categoryLabel}
                   </span>
-                ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            {/* Footer */}
-            <div className="mt-5 pt-3 border-t border-[#E2E2E2] flex items-center justify-between text-xs text-[#777777]">
-              <span className="truncate max-w-[180px]">{item.sourceOrKeeper}</span>
-              <span className="font-semibold text-[#3E6586] group-hover:translate-x-1 transition-transform">
-                상세 해제 →
-              </span>
+            <div className="p-6 flex flex-col justify-between flex-1">
+              <div>
+                {/* Header (when no image, show category tag here) */}
+                <div className="flex items-center justify-between text-xs mb-2.5 gap-2">
+                  {!item.imageUrl && (
+                    <span className="rounded-md asharyu-tag-earth px-2.5 py-0.5 text-xs font-medium whitespace-nowrap shrink-0">
+                      {item.categoryLabel}
+                    </span>
+                  )}
+                  <span className="text-[#888888] text-[11px] font-mono ml-auto truncate">
+                    {item.dateOrEra}
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="font-serif text-lg font-bold text-[#0c0c0c] group-hover:text-[#3E6586] transition-colors leading-snug">
+                  {item.title}
+                </h3>
+                {item.hanjaTitle && (
+                  <p className="text-xs text-[#888888] font-serif mt-0.5">
+                    {item.hanjaTitle}
+                  </p>
+                )}
+
+                {/* Location */}
+                {item.location && (
+                  <p className="text-xs text-[#666666] mt-2 flex items-center gap-1">
+                    <span>📍</span> {item.location}
+                  </p>
+                )}
+
+                {/* Description */}
+                <p className="text-xs sm:text-sm text-[#555555] mt-3 line-clamp-3 leading-relaxed">
+                  {item.description}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-1.5 mt-4">
+                  {item.tag.map((t, idx) => (
+                    <span
+                      key={idx}
+                      className="rounded bg-[#FAFAFA] border border-muk-sharp px-2 py-0.5 text-[11px] text-[#555555]"
+                    >
+                      #{t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="mt-5 pt-3 border-t border-[#E2E2E2] flex items-center justify-between text-xs text-[#777777]">
+                <span className="truncate max-w-[180px]">{item.sourceOrKeeper}</span>
+                <span className="font-semibold text-[#3E6586] group-hover:translate-x-1 transition-transform">
+                  상세 해제 →
+                </span>
+              </div>
             </div>
           </div>
         ))}
@@ -179,10 +244,25 @@ export default function ArchivePage() {
           <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl bg-white p-6 sm:p-8 shadow-2xl border border-muk-sharp space-y-6">
             <button
               onClick={() => setSelectedItem(null)}
-              className="absolute right-4 top-4 rounded-full p-2 text-[#888888] hover:bg-[#FAFAFA] hover:text-[#0c0c0c]"
+              className="absolute right-4 top-4 rounded-full p-2 text-[#888888] hover:bg-[#FAFAFA] hover:text-[#0c0c0c] z-10 bg-white/80"
             >
               ✕
             </button>
+
+            {/* Modal Image */}
+            {selectedItem.imageUrl && (
+              <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-muk-sharp bg-[#F2F2F2]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={selectedItem.imageUrl}
+                  alt={selectedItem.title}
+                  className="h-full w-full object-cover"
+                />
+                <div className="absolute bottom-2.5 right-2.5 bg-black/70 text-white text-[11px] px-2.5 py-0.5 rounded-md backdrop-blur-xs font-mono">
+                  소장/출처: {selectedItem.sourceOrKeeper}
+                </div>
+              </div>
+            )}
 
             {/* Header */}
             <div className="space-y-2 border-b border-[#E2E2E2] pb-4">
