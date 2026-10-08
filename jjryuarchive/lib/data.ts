@@ -664,6 +664,118 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
     significance: '유네스코 세계기록유산 유교책판 목록에 수록되어 있으며, 19세기 영남 성리학파의 사상적 성취를 보여줍니다.',
     tag: ['호고와집', '류휘문', '유교책판', '한국국학진흥원', '성리학'],
     sourceOrKeeper: '한국국학진흥원 장판각'
+  },
+  {
+    id: 'arch-musil-jeongryeogak',
+    title: '전주류씨 무실정려각(務實旌閭閣)',
+    hanjaTitle: '全州柳氏 務實旌閭閣',
+    category: 'historic_site',
+    categoryLabel: '유적·종택',
+    dateOrEra: '조선 인조 13년 (1635년 건립, 1988년 수몰 이건)',
+    location: '경상북도 안동시 임동면 수곡용계로 400',
+    imageUrl: '/images/archives/musil_jeongryeogak.jpg',
+    description: '무실 입향조 류성 선생의 배위이자 학봉 김성일의 누이인 의성 김씨의 정절을 기려 인조 임금이 정려를 내려 건립한 비각입니다. 1988년 임하댐 수몰로 현재의 고지대로 원형 이건되었습니다.',
+    significance: '경상북도 민속문화유산 제48호로, 수곡파 가문과 의성 김씨 문중 간의 혼반 연대와 조선 중기 정절 문화를 대변하는 대표 유적입니다.',
+    tag: ['무실정려각', '정려각', '의성김씨', '민속문화유산', '임하댐 이건'],
+    sourceOrKeeper: '경상북도 민속문화유산'
+  },
+  {
+    id: 'arch-yongwa-jongtaek',
+    title: '전주류씨 용와종택(慵窩宗宅) 및 침간정(枕澗亭)',
+    hanjaTitle: '全州柳氏 慵窩宗宅 및 枕澗亭',
+    category: 'historic_site',
+    categoryLabel: '유적·종택',
+    dateOrEra: '조선 영조 연간 (1987년 구미 일선리 이건)',
+    location: '경상북도 구미시 해평면 일선리 (문화재마을)',
+    imageUrl: '/images/archives/yongwa_jongtaek.jpg',
+    description: '수곡파의 석학 용와 류승현(1680~1746) 선생의 종택과 부속 정자입니다. 본래 무실 인근 박곡리에 있었으나 1987년 임하댐 건설로 문중이 집단 이주지인 구미 일선리 문화재마을로 원형 그대로 해체 이건하였습니다.',
+    significance: '경상북도 민속문화유산 제18호로, 수몰로 인해 고향을 떠나야 했던 수곡파의 아픈 이건사이자 영남 사대부 가옥의 미학을 증명합니다.',
+    tag: ['용와종택', '침간정', '류승현', '일선리 문화재마을', '민속문화유산'],
+    sourceOrKeeper: '경상북도 민속문화유산'
+  },
+  {
+    id: 'arch-dongamjeong',
+    title: '동암정(東巖亭)',
+    hanjaTitle: '東巖亭',
+    category: 'historic_site',
+    categoryLabel: '유적·종택',
+    dateOrEra: '조선 정조 연간 (1987년 구미 일선리 이건)',
+    location: '경상북도 구미시 해평면 일선리 (문화재마을)',
+    imageUrl: '/images/archives/dongamjeong.jpg',
+    description: '유네스코 세계기록유산 『상변통고』를 집필한 동암 류장원(1724~1796) 선생이 후학을 가르치고 학문을 연마하던 정자입니다. 임하댐 수몰을 피해 구미 일선리 문화재마을로 옮겨졌습니다.',
+    significance: '경상북도 문화유산자료 제62호로, 조선 예학의 거봉이 머물던 학술 산실로서의 높은 역사적 가치를 지닙니다.',
+    tag: ['동암정', '동암 류장원', '상변통고', '문화유산자료', '일선리 이건'],
+    sourceOrKeeper: '경상북도 문화유산자료'
+  },
+  {
+    id: 'arch-samgajeong',
+    title: '삼가정(三嘉亭)',
+    hanjaTitle: '三嘉亭',
+    category: 'historic_site',
+    categoryLabel: '유적·종택',
+    dateOrEra: '조선 후기 (1987년 구미 일선리 이건)',
+    location: '경상북도 구미시 해평면 일선리 (문화재마을)',
+    imageUrl: '/images/archives/samgajeong.jpg',
+    description: '수곡파 삼가공 류봉시(柳鳳時) 선생의 덕을 기리기 위해 문중 후손들이 건립한 정자입니다. 임하댐 수몰 당시 구미 일선리 문화재마을로 이건되어 보존되고 있습니다.',
+    significance: '경상북도 문화유산자료 제50호로, 수곡파 종중의 정자 문화와 일선리 집단 이건 역사를 보여줍니다.',
+    tag: ['삼가정', '류봉시', '문화유산자료', '일선리 이건'],
+    sourceOrKeeper: '경상북도 문화유산자료'
+  },
+  {
+    id: 'arch-jeongjae-jongtaek',
+    title: '안동 정재종택(定齋宗宅) 및 정재문집(定齋文集)',
+    hanjaTitle: '安東 定齋宗宅 및 定齋文集',
+    category: 'historic_site',
+    categoryLabel: '유적·종택',
+    dateOrEra: '조선 후기 (18~19세기)',
+    location: '경상북도 안동시 임동면 수곡리',
+    imageUrl: '/images/archives/jeongjae_jongtaek.jpg',
+    description: '영남 남인 사림의 영수로 퇴계-갈암 학통을 계승한 정재 류치명(柳致明, 1777~1861) 선생의 종택과 문집 목판 유산입니다. 이조참판, 대사헌을 지내며 영남 사림의 척사위정론과 정통 성리학을 주도하였습니다.',
+    significance: '경상북도 기념물 제170호로 지정되어, 19세기 조선 사상계와 영남학파의 중심지 역할을 했던 수곡파의 학문적 위상을 증언합니다.',
+    tag: ['정재종택', '정재 류치명', '기념물', '영남학파'],
+    sourceOrKeeper: '경상북도 기념물 (수곡파 정재문중)'
+  },
+  {
+    id: 'arch-jeongjae-woodblocks',
+    title: '『정재선생문집(定齋先生文集)』 목판 (유네스코 세계기록유산)',
+    hanjaTitle: '定齋先生文集 木板 (UNESCO 世界記錄遺産)',
+    category: 'document',
+    categoryLabel: '문헌·고서',
+    dateOrEra: '조선 고종 연간 (1880년대 판각 간행)',
+    location: '한국국학진흥원 장판각 (유교책판)',
+    imageUrl: '/images/archives/jeongjae_woodblocks.jpg',
+    description: '19세기 영남 성리학의 최고봉이자 퇴계학맥의 정통 계승자인 정재 류치명(1777~1861) 선생의 전 저작을 망라한 32권 16책 규모의 문집 목판입니다. 사단칠정론, 심성론, 척사위정론 등 조선 말기 지식인 사회의 사상적 격변과 도덕적 결단을 고스란히 담고 있습니다.',
+    significance: '경상북도 유형문화유산 제171호 및 2015년 유네스코 세계기록유산(유교책판)으로 등재된 조선 사상사 최고의 1급 학술 문화유산입니다.',
+    tag: ['정재선생문집', '정재 류치명', '유교책판', '세계기록유산', '유형문화유산', '한국국학진흥원'],
+    sourceOrKeeper: '한국국학진흥원 장판각 (경북 유형문화유산 제171호)'
+  },
+  {
+    id: 'arch-gyoji-document',
+    title: '조선 국왕 사령 교지(敎旨) 및 고신(告身)',
+    hanjaTitle: '朝鮮 國王 辭令 敎旨 및 告身',
+    category: 'document',
+    categoryLabel: '문헌·고서',
+    dateOrEra: '조선 숙종~영조~정조 연간',
+    location: '한국국학진흥원 수곡종택 기탁 고문서군',
+    imageUrl: '/images/archives/gyoji_document.jpg',
+    description: '조선 국왕이 수곡파 역대 선조(기봉 류복기, 삼산 류정원, 정재 류치명 등)에게 대사헌, 이조참판, 증직 등의 관직을 제수하며 내린 국왕 사령 공문서입니다. 국왕의 어보인 ‘시명지보(施命之寶)’가 선명히 날인되어 있으며, 국가의 공식 통치 체계 속에서 가문의 공신력과 정치적 위상을 확증합니다.',
+    significance: '국왕의 어인과 관직 제수 내력이 완벽하게 보존된 조선왕조 1차 공문서로, 국가 소멸 시에도 가문의 역사적 지위를 입증하는 법적·제도적 기록물입니다.',
+    tag: ['교지', '고신', '시명지보', '대사헌', '이조참판', '한국국학진흥원'],
+    sourceOrKeeper: '수곡종택 기탁 고문서 (한국국학진흥원 수장고)'
+  },
+  {
+    id: 'arch-hojeok-document',
+    title: '수곡파 호적단자(戶籍單子) 및 준호구(准戶口)',
+    hanjaTitle: '洙谷派 戶籍單子 및 准戶口',
+    category: 'document',
+    categoryLabel: '문헌·고서',
+    dateOrEra: '조선 숙종~고종 연간 (17~19세기)',
+    location: '한국학중앙연구원 / 한국국학진흥원 기탁',
+    imageUrl: '/images/archives/hojeok_document.jpg',
+    description: '예안현(禮安縣)과 안동부(安東府) 관청에 3년마다 제출하여 공인을 받은 수곡파 종가의 호적 공문서입니다. 호주와 처의 4조(부·조·증조·외조), 동거 자녀, 솔거 노비의 명단과 나이가 먹으로 정밀하게 기록되어 있어, 수백 년간 이어진 무실 종가의 가계 구성과 혈통 계승을 실증합니다.',
+    significance: '조선시대 호적 제도의 운영 실태와 가계의 혈통·사회경제적 실상을 증언하는 대체 불가능한 1차 인구·가족사 공문서입니다.',
+    tag: ['호적단자', '준호구', '예안현', '4조', '고문서', '한국국학진흥원'],
+    sourceOrKeeper: '전주류씨 무실종가 기탁 고문서 (한국국학진흥원)'
   }
 ];
 
@@ -715,6 +827,6 @@ export const TIMELINE: TimelineEvent[] = [
     year: '현재',
     title: '전주류씨 디지털 오픈 아카이브 출범',
     category: 'archive',
-    description: '물리적 공간은 사라졌으나, 가문의 모든 기록과 정신을 글로벌 오픈 저장소(GitHub)에 영구 보존하는 디지털 문헌 프로젝트 개시.'
+    description: '물리적 공간이 사라져도 남아 있을, 가문의 모든 기록과 정신을 글로벌 오픈 저장소(GitHub)에 영구 보존하는 디지털 문헌 프로젝트 개시.'
   }
 ];

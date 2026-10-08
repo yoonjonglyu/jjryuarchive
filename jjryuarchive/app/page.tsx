@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PEOPLE, ARCHIVE_ITEMS, TIMELINE } from "@/lib/data";
+import { assetPath } from "@/lib/utils";
 
 export default function HomePage() {
   const featuredPeople = PEOPLE.slice(0, 4);
@@ -255,7 +256,7 @@ export default function HomePage() {
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#F2F2F2] border-b border-muk-sharp">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={item.imageUrl}
+                    src={assetPath(item.imageUrl)}
                     alt={item.title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
