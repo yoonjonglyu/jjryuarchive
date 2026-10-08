@@ -129,10 +129,10 @@ export default function HomePage() {
                 譜
               </div>
               <h3 className="font-serif text-lg font-bold text-[#0c0c0c] group-hover:text-[#3E6586] transition-colors">
-                가문 계보 시각화 (세보)
+                수곡파 주요인물 계보도 (21代)
               </h3>
               <p className="text-xs sm:text-sm text-[#555555] leading-relaxed">
-                시조 완산백 류혼 공부터 파조 기봉 류복기 공, 삼산 류정원 공으로 이어지는 수곡파 직계 및 방계 계통을 트리로 조망합니다.
+                완산부원군 류습 공부터 파조 기봉 류복기 공, 정재 류치명 공, 3대 독립운동 선조까지 전주류씨 대동보 DB와 연동된 핵심 주요 인물 71위의 직계 계통을 열람합니다.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-[#E2E2E2] text-xs font-semibold text-[#3E6586] flex items-center justify-between">

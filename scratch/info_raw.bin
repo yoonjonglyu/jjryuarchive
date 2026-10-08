@@ -1,0 +1,73 @@
+<script>$('#liWh').css('display', '');</script>
+		<h1><span id="infoTitle">9세 復起(복기)</span>님에 해당하는 정보입니다.</h1>
+		<div class="clearfix">
+			<table class="tbl_search type01">
+				<colgroup>
+					<col width="150"/>
+					<col width="120"/>
+					<col width="100"/>
+					<col width="50"/>
+					<col width="80"/>
+					<col width="50"/>
+					<col width="50"/>
+				</colgroup>
+				<tr>
+					<td name="infoPhoto" rowspan="4" class="img nbl"><img src="./images/no_img.jpg" /></td>
+					<th>보명</th>
+					<td id="SName">復起(복기)</td>
+					<th>자</th>
+					<!-- <td id="Zi">&nbsp;聖瑞(성서)</td> 연일정씨에서 꼭 앞에 []이 나와서 막았음-->
+					<td id="Zi"> 聖瑞(성서)</td>
+					<th>성별</th>
+					<td class="nbr">1</td>
+				</tr>
+				<tr>
+					<th>파명</th>
+					<td id="Pa_Name" colspan="3">檜軒公派</td>
+					<th>세수</th>
+					<td id="Generation" class="nbr">9</td>
+				</tr>
+				<tr>
+					<th>생년월일(서기)</th>
+					<td id="SBorn_date" colspan="5" class="nbr">明宗乙卯</td>
+				</tr>
+				<tr>
+					<th>졸년월일(서기)</th>
+					<td id="SDead_Date" colspan="5" class="nbr">三月二十二日</td>
+				</tr>
+				<tr class="last">
+					<th class="etc nbl">품성</th>
+					<td id="SMoral" colspan="6" class="etc nbr"><br /></td>
+				</tr>
+			</table>
+			<table class="tbl_search type02">
+				<colgroup>
+					<col width="50"/>
+					<col width="100"/>
+				</colgroup>
+				<tr>
+					<th>부명</th>
+					<td id="FnName">城(성)</td>
+				</tr>
+				<tr>
+					<th>부세수</th>
+					<td id="Generation_F">8</td>
+				</tr>
+				<tr>
+					<th>일명</th>
+					<td id="Yname"></td>
+				</tr>
+				<tr>
+					<th>호명</th>
+					<td id="Hname"></td>
+				</tr>
+				<tr>
+					<th>휘</th>
+					<td id="Hui"></td>
+				</tr>
+				<tr class="last">
+					<th>호</th>
+					<td id="Hao">岐峰(기봉)</td>
+				</tr>
+			</table>
+		</div>

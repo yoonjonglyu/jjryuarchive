@@ -7,8 +7,8 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   { href: "/", label: "홈", desc: "首 (Home)" },
   { href: "/about", label: "아카이브 소개", desc: "誌 (About)" },
-  { href: "/genealogy", label: "가문 계보도", desc: "譜 (Genealogy)" },
-  { href: "/people", label: "주요 인물", desc: "賢 (Figures)" },
+  { href: "/genealogy", label: "주요인물 계보도", desc: "譜 (Genealogy)" },
+  { href: "/people", label: "주요 인물 열전", desc: "賢 (Figures)" },
   { href: "/archive", label: "사료 아카이브", desc: "錄 (Records)" },
 ];
 
