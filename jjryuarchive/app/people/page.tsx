@@ -5,15 +5,24 @@ import { PEOPLE, Person } from "@/lib/data";
 
 const CATEGORIES = [
   { key: "all", label: "전체 선조 (全)" },
-  { key: "progenitor", label: "시조·중흥조 (始)" },
-  { key: "patriot", label: "의병·독립지사 (義)" },
+  { key: "progenitor", label: "시조·입향조 (始)" },
   { key: "scholar", label: "유학자·학통 (儒)" },
+  { key: "patriot", label: "호국·독립지사 (義)" },
+  { key: "official", label: "명신·관료 (官)" },
 ];
 
 export default function PeoplePage() {
   const [selectedCat, setSelectedCat] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedPerson, setSelectedPerson] = useState<Person | null>(null);
+
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: PEOPLE.length };
+    PEOPLE.forEach((p) => {
+      counts[p.category] = (counts[p.category] || 0) + 1;
+    });
+    return counts;
+  }, []);
 
   const filteredPeople = useMemo(() => {
     return PEOPLE.filter((person) => {
@@ -23,45 +32,82 @@ export default function PeoplePage() {
         person.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         person.hanjaName.includes(searchQuery) ||
         (person.pseudonym && person.pseudonym.includes(searchQuery)) ||
+        (person.courtesyName && person.courtesyName.includes(searchQuery)) ||
         (person.title && person.title.includes(searchQuery)) ||
         person.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        person.achievements.some((a) => a.toLowerCase().includes(searchQuery.toLowerCase()));
+        person.achievements.some((a) => a.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        (person.writings && person.writings.some((w) => w.toLowerCase().includes(searchQuery.toLowerCase())));
       return matchCat && matchQuery;
     });
   }, [selectedCat, searchQuery]);
 
   return (
-    <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    <div className="container mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       {/* Header */}
       <div className="text-center space-y-3 border-b border-muk-sharp pb-8">
-        <span className="text-xs font-bold uppercase tracking-widest text-[#3E6586]">
-          Historical Luminaries · 賢
-        </span>
+        <div className="inline-flex items-center gap-2 rounded-full border border-[#3E6586]/30 bg-[#ECF2F6] px-3.5 py-1 text-xs font-bold text-[#3E6586]">
+          <span>Historical Luminaries · 全州柳氏 洙谷派 20代 先祖</span>
+        </div>
         <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#0c0c0c]">
-          전주류씨 가문의 주요 인물
+          가문의 대표 인물 열전 (20人)
         </h1>
-        <p className="text-sm sm:text-base text-[#555555] max-w-2xl mx-auto">
-          시조 완산백 이래 도학의 정신을 밝히고, 임진왜란과 일제강점기 국난 속에서 충의와 절개를 지킨 선조들의 생애와 업적을 기립니다.
+        <p className="text-sm sm:text-base text-[#555555] max-w-2xl mx-auto leading-relaxed">
+          고려조 완산백 류혼 시조 이래 400여 년 무실(수곡)의 터전을 닦고,
+          퇴계 정통 학맥을 계승하여 『상변통고』·『정재집』·『삼산집』 등 불후의 학술을 집대성하며,
+          임진왜란 예안의병과 만주 독립투쟁, 파리장서, 대한민국 임시정부 국무위원에 이르기까지
+          조선의 역사와 사상사를 주도한 대표 선조 20인의 생애와 행적을 집대성했습니다.
         </p>
+
+        {/* 4 Summary Highlight Cards */}
+        <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto text-center">
+          <div className="p-3 rounded-lg bg-white border border-muk-sharp shadow-2xs">
+            <div className="text-xs text-[#888888]">시조·입향조</div>
+            <div className="text-sm font-bold font-serif text-[#0c0c0c] mt-0.5">류혼 · 류습 · 류성 · 류복기</div>
+          </div>
+          <div className="p-3 rounded-lg bg-white border border-muk-sharp shadow-2xs">
+            <div className="text-xs text-[#888888]">영남 도학·예학 거봉</div>
+            <div className="text-sm font-bold font-serif text-[#3E6586] mt-0.5">류정원 · 류장원 · 류치명</div>
+          </div>
+          <div className="p-3 rounded-lg bg-white border border-muk-sharp shadow-2xs">
+            <div className="text-xs text-[#888888]">임진왜란 호국 의병</div>
+            <div className="text-sm font-bold font-serif text-[#917D47] mt-0.5">류복기(예안) · 류복립(진주)</div>
+          </div>
+          <div className="p-3 rounded-lg bg-white border border-muk-sharp shadow-2xs">
+            <div className="text-xs text-[#888888]">항일 독립운동 지사</div>
+            <div className="text-sm font-bold font-serif text-[#4D6B48] mt-0.5">류필영 · 류인식 · 류림 · 류원식</div>
+          </div>
+        </div>
       </div>
 
       {/* Filter and Search Bar */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 rounded-xl border border-muk-sharp bg-white p-4 shadow-2xs">
         {/* Category Tabs */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat.key}
-              onClick={() => setSelectedCat(cat.key)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap ${
-                selectedCat === cat.key
-                  ? "bg-[#0c0c0c] text-white shadow-2xs"
-                  : "bg-[#FAFAFA] text-[#333333] hover:bg-[#F2F2F2] border border-muk-sharp"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+          {CATEGORIES.map((cat) => {
+            const count = categoryCounts[cat.key] || 0;
+            return (
+              <button
+                key={cat.key}
+                onClick={() => setSelectedCat(cat.key)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors whitespace-nowrap flex items-center gap-1.5 ${
+                  selectedCat === cat.key
+                    ? "bg-[#0c0c0c] text-white shadow-2xs"
+                    : "bg-[#FAFAFA] text-[#333333] hover:bg-[#F2F2F2] border border-muk-sharp"
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono ${
+                    selectedCat === cat.key
+                      ? "bg-white/20 text-white"
+                      : "bg-[#EAEAEA] text-[#666666]"
+                  }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Search Input */}
