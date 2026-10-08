@@ -46,7 +46,7 @@ export default function Image() {
               fontWeight: "bold",
             }}
           >
-            全州柳氏 洙谷派
+            全州柳氏 水谷派
           </div>
         </div>
 

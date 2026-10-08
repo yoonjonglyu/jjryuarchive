@@ -46,7 +46,7 @@ export default function PeoplePage() {
       {/* Header */}
       <div className="text-center space-y-3 border-b border-muk-sharp pb-8">
         <div className="inline-flex items-center gap-2 rounded-full border border-[#3E6586]/30 bg-[#ECF2F6] px-3.5 py-1 text-xs font-bold text-[#3E6586]">
-          <span>Historical Luminaries · 全州柳氏 洙谷派 25代 先祖</span>
+          <span>Historical Luminaries · 全州柳氏 水谷派 25代 先祖</span>
         </div>
         <h1 className="font-serif text-3xl sm:text-4xl font-extrabold text-[#0c0c0c]">
           가문의 대표 인물 열전 (25人)

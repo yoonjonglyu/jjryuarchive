@@ -813,7 +813,7 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
   {
     id: 'arch-musil-jongtaek',
     title: '전주류씨 수곡파 무실종택(水谷宗宅)',
-    hanjaTitle: '全州柳氏 洙谷派 務實宗宅',
+    hanjaTitle: '全州柳氏 水谷派 務實宗宅',
     category: 'historic_site',
     categoryLabel: '유적·종택',
     dateOrEra: '16세기 중엽 창건 (1988년 수몰지구 해체 이건)',
@@ -883,7 +883,7 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
   {
     id: 'arch-submerged-musil',
     title: '수몰 전 무실마을(수곡리) 전경 사진',
-    hanjaTitle: '洙谷里(水室) 水沒前 全景 寫眞',
+    hanjaTitle: '水谷里(水室) 水沒前 全景 寫眞',
     category: 'submerged_history',
     categoryLabel: '수몰사 기록',
     dateOrEra: '1980년대 (임하댐 수몰 전)',
@@ -939,7 +939,7 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
   {
     id: 'arch-genealogy-woodblocks',
     title: '전주류씨 수곡파 세보(世譜) 목판 및 정본',
-    hanjaTitle: '全州柳氏 洙谷派 世譜 木板',
+    hanjaTitle: '全州柳氏 水谷派 世譜 木板',
     category: 'document',
     categoryLabel: '문헌·고서',
     dateOrEra: '조선 순조 및 고종 연간',
@@ -953,7 +953,7 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
   {
     id: 'arch-partition-deed',
     title: '수곡파 가계 분재기(分財記) 및 화회문기(和會文記)',
-    hanjaTitle: '洙谷派 家系 分財記 및 和會文記',
+    hanjaTitle: '水谷派 家系 分財記 및 和會文記',
     category: 'document',
     categoryLabel: '문헌·고서',
     dateOrEra: '조선 숙종~영조 연간 (17~18세기)',
@@ -1093,7 +1093,7 @@ export const ARCHIVE_ITEMS: ArchiveItem[] = [
   {
     id: 'arch-hojeok-document',
     title: '수곡파 호적단자(戶籍單子) 및 준호구(准戶口)',
-    hanjaTitle: '洙谷派 戶籍單子 및 准戶口',
+    hanjaTitle: '水谷派 戶籍單子 및 准戶口',
     category: 'document',
     categoryLabel: '문헌·고서',
     dateOrEra: '조선 숙종~고종 연간 (17~19세기)',

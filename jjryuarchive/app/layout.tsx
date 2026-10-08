@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     canonical: BASE_URL,
   },
   openGraph: {
-    title: "전주류씨 수곡파 디지털 아카이브 (全州柳氏 洙谷派 Digital Archive)",
+    title: "전주류씨 수곡파 디지털 아카이브 (全州柳氏 水谷派 Digital Archive)",
     description:
       "뿌리를 잊지 않되 현대의 디지털 코드로 영구히 기록하다. 500년 집성촌 무실의 역사와 유네스코 세계기록유산, 3,000여 점의 고문서 1차 사료를 보존합니다.",
     url: BASE_URL,
